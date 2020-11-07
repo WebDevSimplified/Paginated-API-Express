@@ -24,11 +24,12 @@ db.once('open', async () => {
   ]).then(() => console.log('Added Users'))
 })
 
-app.get('/users', paginatedResults(User), (req, res) => {
+const query = User.find()
+app.get('/users', paginatedResults(User,query), (req, res) => {
   res.json(res.paginatedResults)
 })
 
-function paginatedResults(model) {
+function paginatedResults(model,query) {
   return async (req, res, next) => {
     const page = parseInt(req.query.page)
     const limit = parseInt(req.query.limit)
@@ -52,7 +53,7 @@ function paginatedResults(model) {
       }
     }
     try {
-      results.results = await model.find().limit(limit).skip(startIndex).exec()
+      results.results = await query.limit(limit).skip(startIndex).exec()
       res.paginatedResults = results
       next()
     } catch (e) {
