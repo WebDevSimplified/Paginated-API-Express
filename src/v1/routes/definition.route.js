@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const { paginatedResults } = require('./../middleware/pagination');
-const { authenticateJWT } = require('./../middleware/auth');
+const { paginatedResults } = require('../middleware/pagination.middleware');
+const { authenticateApiKey } = require('../middleware/auth.middleware');
 const Definition = require('./../../../mongo/models/definitions');
 
 
@@ -11,7 +11,7 @@ router
     /**
      * all definitions
      */
-    .get(authenticateJWT, paginatedResults(Definition), (_, res, __) => {
+    .get(authenticateApiKey, paginatedResults(Definition), (_, res, __) => {
         return res.json(res.paginatedResults)
     });
 

@@ -1,1 +1,29 @@
-GET http://localhost:3000/users?page=1&limit=14
+# 1. Generate Api key for authenticated user
+# GET http://localhost:3000/api/v1/key
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiam9obmRvZUBleGFtcGxlLmNvbSIsImlkIjoiNjNlYTM4N2IyN2NhMDU0ZjhjMmViNmI2Iiwicm9sZSI6ImNsaWVudCIsImlhdCI6MTY3NjM3MTcxN30.hpKJKLC6wngJCK4P0XjotvWAeJ2AG3K4EhKBI5XqAUU
+
+# 2. Register with email and password
+# POST http://localhost:3000/api/v1/auth/register
+# Content-Type: application/x-www-form-urlencoded
+
+# email=johndoe@example.com
+# &password=12345678
+
+# 3. Login with email and password
+# POST http://localhost:3000/api/v1/auth/login
+# Content-Type: application/x-www-form-urlencoded
+
+# email=johndoe@example.com
+# &password=12345678
+
+# 4.1 Get definitions (paginated)
+# GET http://localhost:3000/api/v1/definitions?page=2&limit=2&comparator=gt&createdAt=2023-02-14T14:53:31.750Z
+# Authorization: Bearer Dfn.5rtsi98bfq65
+# Content-Type: application/json
+
+# 4.2. Get definitions (paginated)
+GET http://localhost:3000/api/v1/definitions
+Authorization: Bearer Dfn.5rtsi98bfq65
+Content-Type: application/json
+
+
