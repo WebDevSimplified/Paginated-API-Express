@@ -1,8 +1,3 @@
-const result = require('dotenv').config({ path: '.env'})
-if (result.error) {
-  console.log(result.error)
-}
-
 const { connect } = require('mongoose');
 
 const db = {}

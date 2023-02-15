@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto')
-require('dotenv').config()
 
 // Capitalize
 const capitalize = (word) => word.charAt(0).toUpperCase() + word.slice(1);
