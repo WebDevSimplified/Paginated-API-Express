@@ -6,7 +6,7 @@ require('dotenv').config()
 const capitalize = (word) => word.charAt(0).toUpperCase() + word.slice(1);
 
 // Generate JWT access token
-const generateToken = (user) => jwt.sign({ username: user.username,  role: user.role, iat: Date.now() }, process.env.SECRET_KEY);
+const generateToken = (user) => jwt.sign({ user: user.email, id: user._id, role: user.role }, process.env.TOKEN_KEY);
 
 const generateTokenExpiration = () => Date.now() + 1000 * 60 * 60 // 1hr in milliseconds
 

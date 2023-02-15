@@ -63,7 +63,7 @@ router
                 });
             }
             
-            const token = jwt.sign({ user: user.email, id: user._id, role: user.role }, process.env.TOKEN_KEY);
+            const token = helpers.generateToken(user);
 
             await Token.create({
                accessToken: token,
