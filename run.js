@@ -1,7 +1,7 @@
 const app = require('./app.js');
 const db = require('./mongo/db');
 const port = process.env.PORT || 3000;
-const result = require('dotenv').config({ path: '.env'})
+const result = require('dotenv').config();
 if (result.error) {
    console.log(result.error)
 }
