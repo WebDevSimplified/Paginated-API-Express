@@ -11,7 +11,7 @@ router
     /**
      * all definitions
      */
-    .get(authenticateApiKey, paginatedResults(Definition), (_, res, __) => {
+    .get(authenticateApiKey, paginatedResults(Definition, "definitions"), (_, res, __) => {
         return res.json(res.paginatedResults)
     });
 
