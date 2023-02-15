@@ -1,10 +1,4 @@
-const definitions = require('../../../mongo/models/definitions');
-
-require('dotenv').config()
-
-const BASE_URL = process.env.BASE_URL;
-
-function paginatedResults(model, endpoint) {
+function paginatedResults(model) {
     return async (req, res, next) => {
         const page = parseInt(req.query.page) || 1;
         const limit = parseInt(req.query.limit) || 500;
@@ -31,13 +25,13 @@ function paginatedResults(model, endpoint) {
         results.info.limit = limit;
         let numResults = await model.countDocuments(); // all documents in the db
         if (endIndex < numResults) {
-            results.info.next = `${BASE_URL}/api/v1/${endpoint}/?page=${page + 1}`;
+            results.info.next = page + 1;
         } else {
             results.info.next = null;
         }
         
         if (startIndex > 0) {
-            results.info.previous = `${BASE_URL}/api/v1/${endpoint}/?page=${page - 1}`;
+            results.info.previous = page - 1;
         } else {
             results.info.previous = null;
         }
