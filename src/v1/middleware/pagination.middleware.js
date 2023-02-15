@@ -1,3 +1,5 @@
+const helpers = require('./../util/helper.util');
+
 function paginatedResults(model) {
     return async (req, res, next) => {
         const page = parseInt(req.query.page) || 1;
@@ -13,8 +15,8 @@ function paginatedResults(model) {
         const pattern = /gt|lt|eq/i;
         // input validation
         validatedComparator = typeof comparator == 'string' && comparator.match(pattern) ? comparator.trim() : false;
-        createdAt = !isNaN(Date.parse(createdAt)) ? createdAt: false;
-        updatedAt = !isNaN(Date.parse(updatedAt)) ? updatedAt: false;
+        createdAt = !isNaN(Date.parse(createdAt)) || !isNaN(Date.parse(helpers.convertTimestampToISOString(createdAt))) ? createdAt: false;
+        updatedAt = !isNaN(Date.parse(updatedAt)) || !isNaN(Date.parse(helpers.convertTimestampToISOString(updatedAt))) ? updatedAt: false;
 
         if (!isEmptyComparatorCreatedAtUpdateAt && !(comparator || createdAt || updatedAt)) return res.status(400).json({ message: "Invalid input", status: 400 });
         

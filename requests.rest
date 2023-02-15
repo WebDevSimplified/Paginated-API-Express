@@ -17,9 +17,9 @@
 # &password=12345678
 
 # 4.1 Get definitions (paginated)
-# GET http://localhost:3000/api/v1/definitions?page=2&limit=2&comparator=gt&createdAt=2022-02-14T14:53:31.750Z
-# Authorization: Bearer Dfn.5rtsi98bfq65
-# Content-Type: application/json
+GET http://localhost:3000/api/v1/definitions?page=2&limit=2&comparator=gt&createdAt=2022-02-14T14:53:31.750Z
+Authorization: Bearer Dfn.5rtsi98bfq65
+Content-Type: application/json
 
 # 4.2. Get definitions (paginated)
 # GET http://localhost:3000/api/v1/definitions
@@ -52,9 +52,9 @@
 # Content-Type: application/json
 
 # 4.2. Get definitions (paginated)
-GET https://dull-gold-cape-buffalo-hem.cyclic.app/api/v1/definitions
-Authorization: Bearer Dfn.5rtsi98bfq65
-Content-Type: application/json
+# GET https://dull-gold-cape-buffalo-hem.cyclic.app/api/v1/definitions
+# Authorization: Bearer Dfn.5rtsi98bfq65
+# Content-Type: application/json
 
 
 

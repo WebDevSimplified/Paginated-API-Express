@@ -40,6 +40,14 @@ const createRandomString = (strLength)=>{
   }else{
     return false
   }
+
+}
+
+const convertTimestampToISOString = (timestamp) => {
+  timestamp = typeof parseInt(timestamp) == 'number' ? parseInt(timestamp) : false;
+  if (!timestamp) return false;
+  
+  return new Date(timestamp).toISOString();
 }
 
 
@@ -48,7 +56,8 @@ module.exports = {
   generateToken,
   hash,
   generateTokenExpiration,
-  createRandomString
+  createRandomString,
+  convertTimestampToISOString
 };
 
 
