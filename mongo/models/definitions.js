@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 
 const definitionsSchema = new mongoose.Schema({
   category: { type: String, required: true },
+  partOfSpeech: { type: String },
   title: { type: String, required: true },
   definition: { type: String, required: true },
   exampleUsage: { type: String },

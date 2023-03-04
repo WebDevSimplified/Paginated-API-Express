@@ -6,7 +6,8 @@ const cors = require('cors');
 
 const v1Routes = require('./src/v1/routes');
 
-
+app.use(express.static('public'))
+app.use("/docs", express.static('doc'))
 app.use(cors());
 app.use(bodyParser.json());
 app.use(

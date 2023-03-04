@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node run.js",
     "dev": "nodemon run.js",
+    "doc": "apidoc -i src/ -o doc/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,12 +14,13 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "express": "^4.17.1",
     "jsonwebtoken": "^9.0.0",
-    "mongoose": "^5.7.1",
-    "dotenv": "^16.0.3"
+    "mongoose": "^5.7.1"
   },
-  "devDependencies": {    
+  "devDependencies": {
+    "apidoc": "^0.54.0",
     "nodemon": "^1.19.2"
   }
 }
