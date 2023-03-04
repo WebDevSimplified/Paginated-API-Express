@@ -1,16 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
     font-family: 'Oswald-Bold';
-    src: url('/public/assets/fonts/Oswald-Bold.ttf');
+    src: url('./../fonts/Oswald-Bold.ttf');
 }
 
 @font-face {
     font-family: 'Oswald-Medium';
-    src: url('/public/assets/fonts/Oswald-Medium.ttf');
+    src: url('./../fonts/Oswald-Medium.ttf');
 }
 
 @font-face {
     font-family: 'Oswald-Regular';
-    src: url('/public/assets/fonts/Oswald-Regular.ttf');
+    src: url('./../fonts/Oswald-Regular.ttf');
 }
 
 :root {
@@ -25,11 +29,32 @@
 body {
     font-family: 'Oswald-Regular', sans-serif;
     background-color: var(--primary);
-    color: var(--onPrimary);    
+    color: var(--onPrimary);   
+    scroll-behavior: smooth; 
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #DCDCDC;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--tertiary);  
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #0492c2;
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-family: 'Oswald-Bold', sans-serif;
 }
 
 h2 {
@@ -41,20 +66,34 @@ p {
     font-size: 1.125rem;
 }
 
-button {
-    background-color: var(--tertiary);
-    color: var(--onTertiary);
-    padding: 10px 15px;
-    border-radius: 5px;
-    border: 0;
-    font-size: 1.125rem;
+.img-glow-effect {
+    /* box-shadow: 120px 80px 40px 20px #0ff; */
+    box-shadow: 20px 20px 40px 20px #0ff;
 }
 
 /* colors */
 .color-tertiary { color: var(--tertiary) }
 
-.hero {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+
+@layer components {
+    .btn {
+        @apply px-3 py-2 hover:font-bold hover:shadow-lg;
+    }
+
+    .btn-transparent {
+        @apply rounded-3xl text-[#FFF] border-2 border-[#FFF] hover:bg-[#FFF] hover:text-black; 
+    }
+
+    .btn-cta {
+        @apply rounded-3xl bg-[#00FFE0] text-[#0C1234]; 
+    }
+
+    .btn-transparent-noborder {
+        @apply rounded-3xl  text-[#000];
+    }
+
+
+    .card {
+        @apply max-w-lg shadow-lg border border-[#d5d5d5] px-4 py-6 rounded-lg;
+    }
 }

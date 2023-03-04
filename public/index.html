@@ -4,22 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/styles/style.css">
+    <link href="./assets/styles/output.css" rel="stylesheet">
     <title>Sheng api</title>
 </head>
 <body>
-    <main>
-        <div class="hero">
-            <div>
-                <p class="color-tertiary">API for developers</p>
-                <h1>Production-ready API for you Dictionary Client</h1>
-                <p>Get started with no time, type away your client & let us handle the definitions.</p>
-                <button>
-                    Get Started
-                </button>
+    <header class="relative p-5 lg:px-10 2xl:container 2xl:mx-auto">
+        <nav class="w-full flex justify-between">
+            <a href="/">
+                <img src="./assets/images/logo.svg" width="50" height="50" alt="logo"/>
+            </a>
+            <div class="md:hidden">
+                <span class="iconify" data-icon="tabler:caret-down" style="font-size: 24px"></span>
             </div>
-            <img src="/assets/images/code_sample.webp" alt="image containing example usage sample"/>
-        </div>
+            <ul class="absolute top-4 right-0 flex flex-col lg:static lg:flex-row">
+                <li class="mx-5">
+                    <a href="/docs">Docs</a>
+                </li>
+                <li class="mx-5">
+                    <a href="#About">About</a>
+                </li>
+                <li class="ml-5">
+                    <a href="#getting-started">Get Started</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="py-16 px-5 lg:px-10 2xl:container 2xl:mx-auto">
+        <section id="hero"
+            class="flex flex-col md:flex-row md:justify-between">
+            <div class="pb-16 md:pr-5 lg:max-w-lg">
+                <p class="color-tertiary">API for developers</p>
+                <h1 class="text-5xl lg:text-6xl">Production-ready API for you Dictionary Client</h1>
+                <p class="py-5">Get started with no time, type away your client & let us handle the definitions.</p>
+                <button class="btn btn-cta">Get Started</button>
+            </div>
+            <img src="/assets/images/code_sample.webp" alt="image containing example usage sample"
+                class="img-glow-effect"/>
+        </section>
+        <section id="getting-started">
+
+        </section>
+        <section id="about">
+
+        </section>
+
     </main>
+    <footer class="p-5 lg:px-10 2xl:container 2xl:mx-auto">
+
+    </footer>
 </body>
+<script src="assets/js/iconify.min.js"></script>
 </html>
