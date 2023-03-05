@@ -95,20 +95,17 @@ footer {
 
 /* Modifying list markers */
 summary {
+    list-style-image: url("./../images/add-thick.svg");
     padding: 1.5rem 0;
     cursor: pointer;
     font-family: 'Oswald-Medium', sans-serif;
     list-style-position: inside;
-}
-
-summary::marker {
-    content: url("./../images/add-thick.svg") ' ';
+    outline: none;
 }
 
 details > p {
     padding-left: 3ch;
 }
-
 
 details[open] > summary {
     list-style-image: url("./../images/minus-thick.svg");

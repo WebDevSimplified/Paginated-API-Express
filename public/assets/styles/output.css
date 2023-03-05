@@ -638,11 +638,6 @@ video {
   margin-right: 1.25rem;
 }
 
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .ml-2 {
   margin-left: 0.5rem;
 }
@@ -673,10 +668,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.max-w-xl {
-  max-width: 36rem;
 }
 
 .transform {
@@ -717,11 +708,6 @@ video {
   padding: 1.25rem;
 }
 
-.py-16 {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-}
-
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -737,21 +723,16 @@ video {
   padding-bottom: 1.25rem;
 }
 
-.py-24 {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-}
-
 .pb-16 {
   padding-bottom: 4rem;
 }
 
-.pb-5 {
-  padding-bottom: 1.25rem;
-}
-
 .pb-24 {
   padding-bottom: 6rem;
+}
+
+.pb-5 {
+  padding-bottom: 1.25rem;
 }
 
 .text-2xl {
@@ -889,14 +870,12 @@ footer {
 /* Modifying list markers */
 
 summary {
+  list-style-image: url("./../images/add-thick.svg");
   padding: 1.5rem 0;
   cursor: pointer;
   font-family: 'Oswald-Medium', sans-serif;
   list-style-position: inside;
-}
-
-summary::marker {
-  content: url("./../images/add-thick.svg") ' ';
+  outline: none;
 }
 
 details > p {
@@ -1021,10 +1000,6 @@ details[open] > summary {
   .lg\:py-32 {
     padding-top: 8rem;
     padding-bottom: 8rem;
-  }
-
-  .lg\:pt-0 {
-    padding-top: 0px;
   }
 
   .lg\:pt-5 {
