@@ -13,26 +13,21 @@
             <a href="/">
                 <img src="./assets/images/logo.svg" width="50" height="50" alt="logo"/>
             </a>
-            <button id="open-navigation-btn"
+            <button id="toggle-navigation-btn"
                 class="lg:hidden">
                 <span class="iconify" data-icon="tabler:caret-down" style="font-size: 24px"></span>
+                <span class="iconify hidden" data-icon="tabler:caret-up" style="font-size: 24px"></span>
             </button>
             <ul id="nav-items"
-                class="hidden absolute top-8 inset-x-0 frosted-glass rounded-lg flex-col lg:static lg:flex lg:flex-row lg:bg-transparent lg:rounded-none">
-                <li class="mx-5 py-2">
+                class="hidden absolute top-12 inset-x-0 frosted-glass rounded-lg flex-col lg:static lg:flex lg:flex-row lg:bg-transparent lg:rounded-none">
+                <li class="py-2 mx-2.5 lg:mx-5">
                     <a href="/docs">Docs</a>
                 </li>
-                <li class="mx-5 py-2">
+                <li class="py-2 mx-2.5 lg:mx-5">
                     <a href="#About">About</a>
                 </li>
-                <li class="ml-5 py-2">
+                <li class="py-2 ml-2.5 lg:ml-5">
                     <a href="#getting-started">Get Started</a>
-                </li>
-                <li class="ml-5 py-2 lg:hidden">
-                    <button id="close-navigation-btn"
-                        class="w-full flex items-end justify-between hover:font-bold">
-                        Close<span class="iconify" data-icon="tabler:caret-up" style="font-size: 24px"></span>
-                    </button>
                 </li>
             </ul>
         </nav>
@@ -64,19 +59,30 @@
 <script src="assets/js/iconify.min.js"></script>
 <script>
     window.addEventListener("load", function(event) {
-        const openNavButton = document.querySelector("#open-navigation-btn");
-        const closeNavButton = document.querySelector("#close-navigation-btn");
+        const toggleNavBtn = document.querySelector("#toggle-navigation-btn");
         const navItems = document.querySelector("#nav-items");
+        const navBtnIconDown = toggleNavBtn.children[0];
+        const navBtnIconUp = toggleNavBtn.children[1];
+        let isNavOpen = false;
 
-        closeNavButton.addEventListener("click", function() {
-            navItems.classList.add("hidden");
-            navItems.classList.remove("flex");
-        });
+        toggleNavBtn.addEventListener("click", toggleNav);
 
-        openNavButton.addEventListener("click", function() {
-            navItems.classList.remove("hidden");
-            navItems.classList.add("flex")
-        });
+        function toggleNav() {
+            if (isNavOpen) {
+                navItems.classList.add("hidden");
+                navItems.classList.remove("flex");
+
+                navBtnIconDown.classList.add("hidden");
+                navBtnIconUp.classList.remove("hidden");
+            } else {
+                navItems.classList.remove("hidden");
+                navItems.classList.add("flex");
+
+                navBtnIconDown.classList.remove("hidden");
+                navBtnIconUp.classList.add("hidden");
+            }
+            isNavOpen = !isNavOpen; 
+        }
 
     })
 </script>
