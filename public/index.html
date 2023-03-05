@@ -58,7 +58,7 @@
 </body>
 <script src="assets/js/iconify.min.js"></script>
 <script>
-    window.addEventListener("load", function(event) {
+    window.addEventListener("load", function() {
         const toggleNavBtn = document.querySelector("#toggle-navigation-btn");
         const navItems = document.querySelector("#nav-items");
         const navBtnIconDown = toggleNavBtn.children[0];
@@ -72,18 +72,20 @@
                 navItems.classList.add("hidden");
                 navItems.classList.remove("flex");
 
-                navBtnIconDown.classList.add("hidden");
-                navBtnIconUp.classList.remove("hidden");
+                navBtnIconUp.classList.add("hidden");
+                navBtnIconDown.classList.remove("hidden");
             } else {
                 navItems.classList.remove("hidden");
                 navItems.classList.add("flex");
 
-                navBtnIconDown.classList.remove("hidden");
-                navBtnIconUp.classList.add("hidden");
+                navBtnIconDown.classList.add("hidden");
+                navBtnIconUp.classList.remove("hidden");
             }
-            isNavOpen = !isNavOpen; 
-        }
 
-    })
+            isNavOpen = !isNavOpen;
+            
+        }
+    });
+
 </script>
 </html>
