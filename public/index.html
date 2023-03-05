@@ -8,7 +8,7 @@
     <title>Sheng api</title>
 </head>
 <body>
-    <header class="fixed inset-x-0 top-0 p-5 bg-[#0C1234] lg:px-10 2xl:container 2xl:mx-auto">
+    <header class="fixed inset-x-0 top-0 p-5 lg:static lg:px-10 2xl:container 2xl:mx-auto">
         <nav class="relative w-full flex justify-between">
             <a href="/">
                 <img src="./assets/images/logo.svg" width="50" height="50" alt="logo"/>
@@ -24,7 +24,7 @@
                     <a href="/docs">Docs</a>
                 </li>
                 <li class="py-2 mx-2.5 lg:mx-5">
-                    <a href="#About">About</a>
+                    <a href="#about">About</a>
                 </li>
                 <li class="py-2 ml-2.5 lg:ml-5">
                     <a href="#getting-started">Get Started</a>
@@ -32,9 +32,9 @@
             </ul>
         </nav>
     </header>
-    <main class="mt-20 py-16 px-5 lg:mt-24 lg:px-10 2xl:container 2xl:mx-auto">
+    <main>
         <section id="hero"
-            class="flex flex-col md:flex-row md:justify-between">
+            class="flex flex-col mt-20 page-margin md:flex-row md:justify-between lg:mt-24">
             <div class="pb-16 md:pr-5 lg:max-w-lg">
                 <p class="color-tertiary">API for developers</p>
                 <h1 class="text-5xl lg:text-6xl">Production-ready API for you Dictionary Client</h1>
@@ -44,21 +44,93 @@
             <img src="/assets/images/code_sample.webp" alt="image containing example usage sample"
                 class="img-glow-effect"/>
         </section>
-        <section id="getting-started">
+        <section id="getting-started"
+            class="page-margin">
 
         </section>
-        <section id="about">
-
+        <section id="about"
+            class="bg-[#FFFFF0] text-[#313131] flex justify-between flex-col pb-24 lg:flex-row page-margin lg:py-32">
+            <h2 class="color-on-tertiary text-5xl pb-16 lg:text-6xl lg:text-[#808080] lg:pt-5">About</h2>
+            <div class="w-full lg:max-w-xl lg:mx-auto">
+                <details class="border-b-1 border-b-[#808080]">
+                    <summary class="text-2xl">What is this?</summary>
+                    <p class="pb-5">This is a REST API that serves Swahili slang definitions to authorized clients. <a href="/#getting-started">See getting started section</a> for a full guide on how on how to wire your client.</p>
+                </details>
+                <hr class="text-[#808080]"/>
+                <details class="border-b-1 border-b-[#808080]">
+                    <summary class="text-2xl">Who are you?</summary>
+                    <p class="pb-5">I am a Fullstack web and android developer with Computer Science background.</p>
+                </details>
+                <hr class="text-[#808080]"/>
+                <details class="border-b-1 border-b-[#808080]">
+                    <summary class="text-2xl">Why did you build this?</summary>
+                    <p class="pb-5">Because we I am really interested in the idea of writing an open source project and also because I can, so why not?</p>
+                </details>
+                <hr class="text-[#808080]"/>
+                <details class="border-b-1 border-b-[#808080]">
+                    <summary class="text-2xl">Technical details?</summary>
+                    <p class="pb-5">The entire project is hosted on Vercel. I used this project as an opportunity to practice pagination and generating api documentation. <a href="https://www.youtube.com/@WebDevSimplified" target="_blank">Got the pagination idea here btw</a>. I used Node and MongoDB to serve the API..</p>
+                </details>
+                <hr class="text-[#808080]"/>
+                <details class="border-b-1 border-b-[#808080]">
+                    <summary class="text-2xl">Copyright?</summary>
+                    <p class="pb-5">This API was created by <a href="https://derrickmbarani.vercel.app" target="_blank">Derrick Mbarani</a>. The data served are collected from various sources both online and offline. No restrictions is placed on use and redistribution.
+                        This API is open source and uses the <a href="https://opensource.org/license/mit" target="_blank">MIT license</a>.</p>
+                </details>
+                <hr class="text-[#808080]"/>
+            </div>
         </section>
 
     </main>
-    <footer class="p-5 lg:px-10 2xl:container 2xl:mx-auto">
-
+    <footer class="page-margin">
+        <ul class="flex justify-center py-5">
+            <li class="mx-3 lg:mx-5">DEFINITIONS: _</li>
+            <li class="mx-3 lg:mx-5">WORDS: _</li>
+            <li class="mx-3 lg:mx-5">IDIOMS: _</li>
+        </ul>
+        <p id="server-status"><!-- server status goes here --></p>
+        <ul class="flex justify-center py-5">
+            <li class="mx-5 flex items-end">
+                <a href="https://vercel.com" target="_blank">
+                    <span class="iconify" data-icon="ion:logo-vercel" style="font-size: 24px"></span>
+                </a>
+                <div class="text-xs ml-2">
+                    deploys by<br/>Vercel
+                </div>
+            </li>
+            <li class="mx-5 flex items-end">
+                <a href="https://expressjs.com" target="_blank">
+                    <span class="iconify" data-icon="skill-icons:expressjs-light" style="font-size: 24px"></span>
+                </a>
+                <div class="text-xs ml-2">
+                    powered by<br/>Express
+                </div>
+            </li>
+        </ul>
+        <ul class="flex justify-center py-5">
+            <li class="mx-5">
+                <a href="https://github.com/Sciederrick/NodeDefinitionsApi" target="_blank">
+                    <span class="iconify" data-icon="uiw:github" style="font-size: 24px"></span>
+                </a>
+            </li>
+            <li class="mx-5">
+                <a href="https://play.google.com/store/apps/details?id=ke.derrick.shengdictionary" target="_blank">
+                    <span class="iconify" data-icon="teenyicons:google-play-store-solid" style="font-size: 24px"></span>
+                </a>
+            </li>
+        </ul>
+        <div class="flex justify-center py-5">            
+            <span class="iconify" data-icon="ph:brackets-angle-bold" style="font-size: 24px"></span>
+            &nbsp;&nbsp;by&nbsp;&nbsp;
+            <a href="https://github.com/Sciederrick" target="_blank">Derrick Mbarani</a>
+            &nbsp;&nbsp;&copy;&nbsp;&nbsp;<span id="copyright-year"><!-- copyright year goes here--></span>
+        </div>
     </footer>
 </body>
 <script src="assets/js/iconify.min.js"></script>
 <script>
     window.addEventListener("load", function() {
+        // Nav
         const toggleNavBtn = document.querySelector("#toggle-navigation-btn");
         const navItems = document.querySelector("#nav-items");
         const navBtnIconDown = toggleNavBtn.children[0];
@@ -85,6 +157,12 @@
             isNavOpen = !isNavOpen;
             
         }
+
+        // Footer
+        const copyrightYear = document.querySelector("#copyright-year");
+        copyrightYear.textContent =  new Date().getFullYear();      
+
+
     });
 
 </script>

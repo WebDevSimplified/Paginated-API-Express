@@ -21,7 +21,7 @@
     --primary: #0C1234;
     --onPrimary: #FFFFF0;
     --tertiary: #00FFE0;
-    --onTertiary: #0C1234;
+    --onTertiary: #0D1117;
     --secondary: #808080;
 
 }
@@ -77,6 +77,43 @@ p {
 /* colors */
 .color-tertiary { color: var(--tertiary) }
 
+.color-on-tertiary { color: var(--onTertiary) }
+
+#hero, header { 
+    color: var(--onPrimary);   
+    background-color: var(--primary);
+}
+
+footer {
+    background-color:#0D1117;
+}
+
+#about {
+    color: #0D1117;
+    background-color: var(--onPrimary);
+}
+
+/* Modifying list markers */
+summary {
+    padding: 1.5rem 0;
+    cursor: pointer;
+    font-family: 'Oswald-Medium', sans-serif;
+    list-style-position: inside;
+}
+
+summary::marker {
+    content: url("./../images/add-thick.svg") ' ';
+}
+
+details > p {
+    padding-left: 3ch;
+}
+
+
+details[open] > summary {
+    list-style-image: url("./../images/minus-thick.svg");
+}
+
 
 @layer components {
     .btn {
@@ -88,15 +125,18 @@ p {
     }
 
     .btn-cta {
-        @apply rounded-3xl bg-[#00FFE0] text-[#0C1234]; 
+        @apply rounded-3xl bg-[#00FFE0] text-[#0D1117]; 
     }
 
     .btn-transparent-noborder {
         @apply rounded-3xl  text-[#000];
     }
 
-
     .card {
         @apply max-w-lg shadow-lg border border-[#d5d5d5] px-4 py-6 rounded-lg;
+    }
+
+    .page-margin {
+        @apply w-full px-5 py-16 lg:px-10 2xl:container 2xl:mx-auto;
     }
 }
