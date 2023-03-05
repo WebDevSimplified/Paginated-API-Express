@@ -643,6 +643,11 @@ video {
   border-radius: 0.5rem;
 }
 
+.bg-\[\#0C1234\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(12 18 52 / var(--tw-bg-opacity));
+}
+
 .p-5 {
   padding: 1.25rem;
 }
