@@ -8,28 +8,36 @@
     <title>Sheng api</title>
 </head>
 <body>
-    <header class="relative p-5 lg:px-10 2xl:container 2xl:mx-auto">
-        <nav class="w-full flex justify-between">
+    <header class="fixed inset-x-0 top-0 p-5 lg:px-10 2xl:container 2xl:mx-auto">
+        <nav class="relative w-full flex justify-between">
             <a href="/">
                 <img src="./assets/images/logo.svg" width="50" height="50" alt="logo"/>
             </a>
-            <div class="md:hidden">
+            <button id="open-navigation-btn"
+                class="md:hidden">
                 <span class="iconify" data-icon="tabler:caret-down" style="font-size: 24px"></span>
-            </div>
-            <ul class="absolute top-4 right-0 flex flex-col lg:static lg:flex-row">
-                <li class="mx-5">
+            </button>
+            <ul id="nav-items"
+                class="hidden absolute top-8 inset-x-0 frosted-glass rounded-lg flex-col lg:static lg:flex lg:flex-row lg:bg-transparent lg:rounded-none">
+                <li class="mx-5 py-2">
                     <a href="/docs">Docs</a>
                 </li>
-                <li class="mx-5">
+                <li class="mx-5 py-2">
                     <a href="#About">About</a>
                 </li>
-                <li class="ml-5">
+                <li class="ml-5 py-2">
                     <a href="#getting-started">Get Started</a>
+                </li>
+                <li class="ml-5 py-2 lg:hidden">
+                    <button id="close-navigation-btn"
+                        class="w-full flex items-end justify-between hover:font-bold">
+                        Close<span class="iconify" data-icon="tabler:caret-up" style="font-size: 24px"></span>
+                    </button>
                 </li>
             </ul>
         </nav>
     </header>
-    <main class="py-16 px-5 lg:px-10 2xl:container 2xl:mx-auto">
+    <main class="mt-20 py-16 px-5 lg:mt-24 lg:px-10 2xl:container 2xl:mx-auto">
         <section id="hero"
             class="flex flex-col md:flex-row md:justify-between">
             <div class="pb-16 md:pr-5 lg:max-w-lg">
@@ -54,4 +62,22 @@
     </footer>
 </body>
 <script src="assets/js/iconify.min.js"></script>
+<script>
+    window.addEventListener("load", function(event) {
+        const openNavButton = document.querySelector("#open-navigation-btn");
+        const closeNavButton = document.querySelector("#close-navigation-btn");
+        const navItems = document.querySelector("#nav-items");
+
+        closeNavButton.addEventListener("click", function() {
+            navItems.classList.add("hidden");
+            navItems.classList.remove("flex");
+        });
+
+        openNavButton.addEventListener("click", function() {
+            navItems.classList.remove("hidden");
+            navItems.classList.add("flex")
+        });
+
+    })
+</script>
 </html>

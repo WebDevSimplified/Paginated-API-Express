@@ -7,6 +7,7 @@
     "start": "node run.js",
     "dev": "nodemon run.js",
     "doc": "apidoc -i src/ -o doc/",
+    "tailwind": "npx tailwindcss -i ./public/assets/styles/style.css -o ./public/assets/styles/output.css --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

@@ -535,6 +535,10 @@ video {
   color: rgb(12 18 52 / var(--tw-text-opacity));
 }
 
+.fixed {
+  position: fixed;
+}
+
 .absolute {
   position: absolute;
 }
@@ -543,12 +547,17 @@ video {
   position: relative;
 }
 
-.right-0 {
+.inset-x-0 {
+  left: 0px;
   right: 0px;
 }
 
-.top-4 {
-  top: 1rem;
+.top-0 {
+  top: 0px;
+}
+
+.top-8 {
+  top: 2rem;
 }
 
 .mx-5 {
@@ -558,6 +567,10 @@ video {
 
 .ml-5 {
   margin-left: 1.25rem;
+}
+
+.mt-20 {
+  margin-top: 5rem;
 }
 
 .inline-block {
@@ -572,6 +585,10 @@ video {
   display: flex;
 }
 
+.hidden {
+  display: none;
+}
+
 .w-full {
   width: 100%;
 }
@@ -584,8 +601,16 @@ video {
   flex-direction: column;
 }
 
+.items-end {
+  align-items: flex-end;
+}
+
 .justify-between {
   justify-content: space-between;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
 }
 
 .p-5 {
@@ -600,6 +625,11 @@ video {
 .py-16 {
   padding-top: 4rem;
   padding-bottom: 4rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .py-5 {
@@ -662,19 +692,19 @@ body {
 /* Track */
 
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px #DCDCDC;
+  box-shadow: inset 0 0 5px var(--secondary);
 }
 
 /* Handle */
 
 ::-webkit-scrollbar-thumb {
-  background: var(--tertiary);
+  background: var(--primary);
 }
 
 /* Handle on hover */
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0492c2;
+  background: var(--tertiary);
 }
 
 h1 {
@@ -691,8 +721,12 @@ p {
 }
 
 .img-glow-effect {
-  /* box-shadow: 120px 80px 40px 20px #0ff; */
   box-shadow: 20px 20px 40px 20px #0ff;
+}
+
+.frosted-glass {
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
 }
 
 /* colors */
@@ -737,6 +771,10 @@ p {
   }
 }
 
+.hover\:font-bold:hover {
+  font-weight: 700;
+}
+
 @media (min-width: 768px) {
   .md\:hidden {
     display: none;
@@ -760,12 +798,32 @@ p {
     position: static;
   }
 
+  .lg\:mt-24 {
+    margin-top: 6rem;
+  }
+
+  .lg\:flex {
+    display: flex;
+  }
+
+  .lg\:hidden {
+    display: none;
+  }
+
   .lg\:max-w-lg {
     max-width: 32rem;
   }
 
   .lg\:flex-row {
     flex-direction: row;
+  }
+
+  .lg\:rounded-none {
+    border-radius: 0px;
+  }
+
+  .lg\:bg-transparent {
+    background-color: transparent;
   }
 
   .lg\:px-10 {
