@@ -535,6 +535,21 @@ video {
   color: rgb(13 17 23 / var(--tw-text-opacity));
 }
 
+.card {
+  max-width: 32rem;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(213 213 213 / var(--tw-border-opacity));
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .page-margin {
   width: 100%;
   padding-left: 1.25rem;
@@ -593,6 +608,30 @@ video {
   }
 }
 
+.form-input {
+  margin: 1rem;
+  margin-left: 0px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(29 40 73 / var(--tw-bg-opacity));
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.form {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .form {
+    max-width: 32rem;
+  }
+}
+
 .fixed {
   position: fixed;
 }
@@ -603,6 +642,10 @@ video {
 
 .relative {
   position: relative;
+}
+
+.sticky {
+  position: sticky;
 }
 
 .inset-x-0 {
@@ -616,6 +659,10 @@ video {
 
 .top-12 {
   top: 3rem;
+}
+
+.m-4 {
+  margin: 1rem;
 }
 
 .mx-2 {
@@ -636,6 +683,15 @@ video {
 .mx-5 {
   margin-left: 1.25rem;
   margin-right: 1.25rem;
+}
+
+.my-20 {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.ml-0 {
+  margin-left: 0px;
 }
 
 .ml-2 {
@@ -708,6 +764,11 @@ video {
   padding: 1.25rem;
 }
 
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -718,9 +779,24 @@ video {
   padding-bottom: 0.75rem;
 }
 
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
+}
+
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .pb-16 {
@@ -731,8 +807,16 @@ video {
   padding-bottom: 6rem;
 }
 
+.pb-4 {
+  padding-bottom: 1rem;
+}
+
 .pb-5 {
   padding-bottom: 1.25rem;
+}
+
+.pb-8 {
+  padding-bottom: 2rem;
 }
 
 .text-2xl {
@@ -834,6 +918,16 @@ p {
   font-size: 1.125rem;
 }
 
+input, select {
+  background-color: #1d2849;
+  outline-style: none;
+}
+
+label {
+  color: var(--secondary);
+  font-size: .85rem;
+}
+
 .img-glow-effect {
   box-shadow: 20px 20px 40px 20px #0ff;
 }
@@ -855,11 +949,18 @@ p {
 
 #hero, header {
   color: var(--onPrimary);
+}
+
+#hero {
   background-color: var(--primary);
 }
 
 footer {
   background-color:#0D1117;
+}
+
+#getting-started {
+  background: linear-gradient(to bottom, #0C1234, #011627);
 }
 
 #about {
@@ -941,6 +1042,10 @@ details[open] > summary {
     position: static;
   }
 
+  .lg\:sticky {
+    position: sticky;
+  }
+
   .lg\:mx-5 {
     margin-left: 1.25rem;
     margin-right: 1.25rem;
@@ -949,6 +1054,11 @@ details[open] > summary {
   .lg\:mx-auto {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .lg\:my-24 {
+    margin-top: 6rem;
+    margin-bottom: 6rem;
   }
 
   .lg\:ml-5 {
@@ -979,6 +1089,10 @@ details[open] > summary {
     flex-direction: row;
   }
 
+  .lg\:justify-between {
+    justify-content: space-between;
+  }
+
   .lg\:rounded-none {
     border-radius: 0px;
   }
@@ -1004,6 +1118,11 @@ details[open] > summary {
 
   .lg\:pt-5 {
     padding-top: 1.25rem;
+  }
+
+  .lg\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 
   .lg\:text-6xl {

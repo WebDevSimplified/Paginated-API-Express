@@ -66,6 +66,16 @@ p {
     font-size: 1.125rem;
 }
 
+input, select {
+    background-color: #1d2849;
+    outline-style: none;
+}
+
+label {
+    color: var(--secondary);
+    font-size: .85rem;
+}
+
 .img-glow-effect {
     box-shadow: 20px 20px 40px 20px #0ff;
 }
@@ -81,11 +91,18 @@ p {
 
 #hero, header { 
     color: var(--onPrimary);   
+}
+
+#hero {
     background-color: var(--primary);
 }
 
 footer {
     background-color:#0D1117;
+}
+
+#getting-started {
+    background: linear-gradient(to bottom, #0C1234, #011627);
 }
 
 #about {
@@ -135,5 +152,13 @@ details[open] > summary {
 
     .page-margin {
         @apply w-full px-5 py-16 lg:px-10 2xl:container 2xl:mx-auto;
+    }
+
+    .form-input {
+        @apply flex flex-col bg-[#1d2849] rounded-2xl ml-0 m-4 py-2 px-6;
+    }
+
+    .form {
+        @apply w-full lg:max-w-lg
     }
 }

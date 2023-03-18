@@ -8,7 +8,7 @@
     <title>Sheng api</title>
 </head>
 <body>
-    <header class="fixed inset-x-0 top-0 p-5 lg:static lg:px-10 2xl:container 2xl:mx-auto">
+    <header class="fixed inset-x-0 top-0 p-5 frosted-glass lg:sticky lg:px-10 2xl:container 2xl:mx-auto">
         <nav class="relative w-full flex justify-between">
             <a href="/">
                 <img src="./assets/images/logo.svg" width="50" height="50" alt="logo"/>
@@ -46,7 +46,108 @@
         </section>
         <section id="getting-started"
             class="page-margin">
+            <header class="sticky top-0 inset-x-0 py-4 frosted-glass">
+                <nav class="relative w-full flex justify-between">
+                    <a href="/">
+                        # Getting Started
+                    </a>
+                    <button id="toggle-navigation-btn"
+                        class="lg:hidden">
+                        <span class="iconify" data-icon="tabler:caret-down" style="font-size: 24px"></span>
+                        <span class="iconify hidden" data-icon="tabler:caret-up" style="font-size: 24px"></span>
+                    </button>
+                    <ul id="nav-items"
+                        class="hidden absolute top-12 inset-x-0 frosted-glass rounded-lg py-3 flex-col lg:static lg:flex lg:flex-row lg:py-0 lg:bg-transparent lg:rounded-none">
+                        <li class="py-2 mx-2.5 lg:mx-5">
+                            <a href="/docs">Docs</a>
+                        </li>
+                        <li class="py-2 mx-2.5 lg:mx-5">
+                            <a href="#about">About</a>
+                        </li>
+                        <li class="py-2 ml-2.5 lg:ml-5">
+                            <span class="iconify" data-icon="ic:outline-account-circle" style="font-size: 24px"></span>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="my-20 lg:my-24 lg:flex lg:justify-between">
+                <form name="registration" class="form">
+                    <fieldset>
+                        <legend class="text-[#808080] text-5xl pb-8 lg:text-4xl lg:pt-5">
+                            Create account for API access.
+                        </legend>
+                        <div class="flex pb-4">
+                            <p>Already a member?&nbsp;</p>
+                            <button>login</button>
+                        </div>
+                        <div class="form-input">
+                            <label for="form-input-email">Email</label>
+                            <input type="email" name="input_email" id="form-input-email">
+                        </div>
+                        <div class="form-input">
+                            <label for="form-input-password">Password</label>
+                            <input type="password" name="input_password" id="form-input-password">
+                        </div>
+                        <button class="btn btn-cta ml-0 m-4 py-2 px-6" type="submit">Create account</button>
+                    </fieldset>
+                </form>
+                <form name="login" class="form hidden">
+                    <fieldset>
+                        <legend class="text-[#808080] text-5xl pb-8 lg:text-4xl lg:pt-5">
+                            Access your account.
+                        </legend>
+                        <div class="flex pb-4">
+                            <p>Don't have an account?&nbsp;&nbsp;</p>
+                            <button>register</button>
+                        </div>
+                        <div class="form-input">
+                            <label for="form-input-email">Email</label>
+                            <input type="email" name="input_email" id="form-input-email">
+                        </div>
+                        <div class="form-input">
+                            <label for="form-input-password">Password</label>
+                            <input type="password" name="input_email" id="form-input-password">
+                        </div>
+                        <button class="btn btn-cta ml-0 m-4 py-2 px-6" type="submit">Account login</button>
+                    </fieldset>
+                </form>
+                <div class="card">
+                    <form class="form flex px-4">
+                        <div class="form-input">
+                            <label for="cars">Comparison:</label>
+                            <select id="cars" name="cars">
+                                <option value="volvo">>=</option>
+                                <option value="audi">></option>
+                                <option value="saab">==</option>
+                                <option value="fiat"><=</option>
+                                <option value="audi"><</option>
+                            </select>
+                        </div>
+                        <div class="form-input">
+                            <label for="cars">ISO 8601 Date:</label>
+                            <select id="cars" name="cars">
+                                <option value="volvo">>=</option>
+                                <option value="audi">></option>
+                                <option value="saab">==</option>
+                                <option value="fiat"><=</option>
+                                <option value="audi"><</option>
+                            </select>
+                        </div>
+                        <div class="form-input">
+                            <label for="cars">Page:</label>
+                            <select id="cars" name="cars">
+                                <option value="volvo">>=</option>
+                                <option value="audi">></option>
+                                <option value="saab">==</option>
+                                <option value="fiat"><=</option>
+                                <option value="audi"><</option>
+                            </select>
+                        </div>
+                        <input type="submit">    
+                    </form>
 
+                </div>
+            </div>
         </section>
         <section id="about"
             class="bg-[#FFFFF0] text-[#313131] flex justify-between flex-col pb-24 lg:flex-row page-margin lg:py-32">
