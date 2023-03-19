@@ -8,8 +8,8 @@
     <title>Sheng api</title>
 </head>
 <body>
-    <header class="fixed inset-x-0 top-0 p-5 frosted-glass lg:sticky lg:px-10 2xl:container 2xl:mx-auto">
-        <nav class="relative w-full flex justify-between">
+    <header class="fixed inset-x-0 top-0 p-5 frosted-glass z-20 lg:sticky lg:px-10 2xl:container 2xl:mx-auto">
+        <nav class="relative w-full flex justify-between" id="main">
             <a href="/">
                 <img src="./assets/images/logo.svg" width="50" height="50" alt="logo"/>
             </a>
@@ -19,7 +19,7 @@
                 <span class="iconify hidden" data-icon="tabler:caret-up" style="font-size: 24px"></span>
             </button>
             <ul id="nav-items"
-                class="hidden absolute top-12 inset-x-0 frosted-glass rounded-lg py-3 flex-col lg:static lg:flex lg:flex-row lg:py-0 lg:bg-transparent lg:rounded-none">
+                class="hidden absolute top-12 inset-x-0 rounded-lg py-3 flex-col bg-[#808080] lg:static lg:flex lg:flex-row lg:py-0 lg:bg-transparent lg:rounded-none">
                 <li class="py-2 mx-2.5 lg:mx-5">
                     <a href="/docs">Docs</a>
                 </li>
@@ -46,26 +46,33 @@
         </section>
         <section id="getting-started"
             class="page-margin">
-            <header class="sticky top-0 inset-x-0 py-4 frosted-glass">
+            <header class="py-4">
                 <nav class="relative w-full flex justify-between">
                     <a href="/">
                         # Getting Started
                     </a>
-                    <button id="toggle-navigation-btn"
+                    <button id="gs-toggle-navigation-btn"
                         class="lg:hidden">
                         <span class="iconify" data-icon="tabler:caret-down" style="font-size: 24px"></span>
                         <span class="iconify hidden" data-icon="tabler:caret-up" style="font-size: 24px"></span>
                     </button>
-                    <ul id="nav-items"
-                        class="hidden absolute top-12 inset-x-0 frosted-glass rounded-lg py-3 flex-col lg:static lg:flex lg:flex-row lg:py-0 lg:bg-transparent lg:rounded-none">
+                    <ul id="gs-nav-items"
+                        class="hidden absolute top-12 inset-x-0 frosted-glass rounded-lg py-3 flex-col bg-[#808080] lg:static lg:flex lg:flex-row lg:py-0 lg:bg-transparent lg:rounded-none">
                         <li class="py-2 mx-2.5 lg:mx-5">
-                            <a href="/docs">Docs</a>
-                        </li>
-                        <li class="py-2 mx-2.5 lg:mx-5">
-                            <a href="#about">About</a>
+                            <a href="#about" class="flex">
+                                <span class="iconify" data-icon="gridicons:stats-alt" style="font-size: 24px"></span>
+                                &nbsp;&nbsp;Stats</a>
                         </li>
                         <li class="py-2 ml-2.5 lg:ml-5">
-                            <span class="iconify" data-icon="ic:outline-account-circle" style="font-size: 24px"></span>
+                            <button class="flex" id="gs-ac-toggle-navigation-btn">
+                                <span class="iconify" data-icon="ic:outline-account-circle" style="font-size: 24px"></span>
+                                &nbsp;&nbsp;Account&nbsp;&nbsp;
+                                <span class="iconify" data-icon="mdi:caret-down" style="font-size: 24px"></span>
+                                <span class="iconify hidden" data-icon="mdi:caret-up" style="font-size: 24px"></span>
+                            </button>
+                        </li>
+                        <li class="gs-ac-nav-items hidden py-2 mx-2.5 lg:mx-5 lg:absolute lg:top-10 lg:right-0 lg:bg-[#808080] lg:px-6 lg:rounded">
+                            <a href="#about" class="pl-8 lg:pl-0">Logout</a>
                         </li>
                     </ul>
                 </nav>
@@ -81,12 +88,12 @@
                             <button>login</button>
                         </div>
                         <div class="form-input">
-                            <label for="form-input-email">Email</label>
-                            <input type="email" name="input_email" id="form-input-email">
+                            <label for="si-form-input-email">Email</label>
+                            <input type="email" name="input_email" id="si-form-input-email">
                         </div>
                         <div class="form-input">
-                            <label for="form-input-password">Password</label>
-                            <input type="password" name="input_password" id="form-input-password">
+                            <label for="si-form-input-password">Password</label>
+                            <input type="password" name="input_password" id="si-form-input-password">
                         </div>
                         <button class="btn btn-cta ml-0 m-4 py-2 px-6" type="submit">Create account</button>
                     </fieldset>
@@ -101,50 +108,47 @@
                             <button>register</button>
                         </div>
                         <div class="form-input">
-                            <label for="form-input-email">Email</label>
-                            <input type="email" name="input_email" id="form-input-email">
+                            <label for="su-form-input-email">Email</label>
+                            <input type="email" name="input_email" id="su-form-input-email">
                         </div>
                         <div class="form-input">
-                            <label for="form-input-password">Password</label>
-                            <input type="password" name="input_email" id="form-input-password">
+                            <label for="su-form-input-password">Password</label>
+                            <input type="password" name="input_email" id="su-form-input-password">
                         </div>
                         <button class="btn btn-cta ml-0 m-4 py-2 px-6" type="submit">Account login</button>
                     </fieldset>
                 </form>
-                <div class="card">
-                    <form class="form flex px-4">
-                        <div class="form-input">
-                            <label for="cars">Comparison:</label>
-                            <select id="cars" name="cars">
-                                <option value="volvo">>=</option>
-                                <option value="audi">></option>
-                                <option value="saab">==</option>
-                                <option value="fiat"><=</option>
-                                <option value="audi"><</option>
+                <div class="relative card shadow-md shadow-[#808080] mt-28 pb-0 -mx-4 md:mx-0 md:max-w-full lg:max-w-[600px] lg:mt-0">
+                    <form class="form flex flex-wrap justify-between absolute top-0 inset-x-0 frosted-glass max-w-full md:px-4">
+                        <div class="form-input mr-0.5 lg:mr-3">
+                            <label for="comparison-operators">Comparison:</label>
+                            <select id="comparison-operators" name="comparison_operators">
+                                <option value="greater_than_or_equal_to">>=</option>
+                                <option value="greater_than">></option>
+                                <option value="equal_to">==</option>
+                                <option value="less_than_or_equal_to"><=</option>
+                                <option value="less_than"><</option>
                             </select>
                         </div>
-                        <div class="form-input">
-                            <label for="cars">ISO 8601 Date:</label>
-                            <select id="cars" name="cars">
-                                <option value="volvo">>=</option>
-                                <option value="audi">></option>
-                                <option value="saab">==</option>
-                                <option value="fiat"><=</option>
-                                <option value="audi"><</option>
+                        <div class="form-input mr-0.5 lg:mr-3">
+                            <label for="date">Updated at:</label>
+                            <input type="date" id="date" name="updated_at">
+                        </div>
+                        <div class="form-input mr-0.5 lg:mr-3">
+                            <label for="page">Page:</label>
+                            <select id="page" name="page">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
                             </select>
                         </div>
-                        <div class="form-input">
-                            <label for="cars">Page:</label>
-                            <select id="cars" name="cars">
-                                <option value="volvo">>=</option>
-                                <option value="audi">></option>
-                                <option value="saab">==</option>
-                                <option value="fiat"><=</option>
-                                <option value="audi"><</option>
-                            </select>
-                        </div>
-                        <input type="submit">    
+                        <input type="submit" class="my-4 btn btn-transparent md:ml-3">    
                     </form>
+                    <div class="h-[375px] -mx-4 bg-[#1d2849] text-[#FFFFF0] overflow-y-scroll p-4 rounded-b-lg pt-36 md:pt-20 ">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo, quam sit repudiandae ea eos sed aut a qui et impedit eaque esse est molestiae recusandae placeat culpa ex quasi. Corrupti.
+                    </div>
 
                 </div>
             </div>
@@ -231,8 +235,8 @@
 <script src="assets/js/iconify.min.js"></script>
 <script>
     window.addEventListener("load", function() {
-        // Nav
-        const toggleNavBtn = document.querySelector("#toggle-navigation-btn");
+        // Primary Nav
+        const toggleNavBtn = document.querySelector("nav#main #toggle-navigation-btn");
         const navItems = document.querySelector("#nav-items");
         const navBtnIconDown = toggleNavBtn.children[0];
         const navBtnIconUp = toggleNavBtn.children[1];
@@ -257,6 +261,60 @@
 
             isNavOpen = !isNavOpen;
             
+        }
+
+        // #getting-started Nav
+        const gsToggleNavBtn = document.querySelector("#gs-toggle-navigation-btn");
+        const gsNavItems = document.querySelector("#gs-nav-items");
+        const gsNavBtnIconDown = gsToggleNavBtn.children[0];
+        const gsNavBtnIconUp = gsToggleNavBtn.children[1];
+        let gsIsNavOpen = false;
+
+        gsToggleNavBtn.addEventListener("click", gsToggleNav);
+
+        function gsToggleNav() {
+            if (gsIsNavOpen) {
+                gsNavItems.classList.add("hidden");
+                gsNavItems.classList.remove("flex");
+
+                gsNavBtnIconUp.classList.add("hidden");
+                gsNavBtnIconDown.classList.remove("hidden");
+            } else {
+                gsNavItems.classList.remove("hidden");
+                gsNavItems.classList.add("flex");
+
+                gsNavBtnIconDown.classList.add("hidden");
+                gsNavBtnIconUp.classList.remove("hidden");
+            }
+
+            gsIsNavOpen = !gsIsNavOpen;
+        }
+
+        const gsAcToggleNavBtn = document.querySelector("button#gs-ac-toggle-navigation-btn");
+        const gsAcNavItems = document.querySelector(".gs-ac-nav-items");
+        const gsAcNavIcons = document.querySelectorAll("button#gs-ac-toggle-navigation-btn > .iconify");
+        const gsAcNavBtnIconDown = gsAcNavIcons[1];
+        const gsAcNavBtnIconUp = gsAcNavIcons[2];
+        let gsAcIsNavOpen = false;
+
+        gsAcToggleNavBtn.addEventListener("click", gsAcToggleNav);
+
+        function gsAcToggleNav() {
+            if (gsAcIsNavOpen) {
+                gsAcNavItems.classList.add("hidden");
+                gsAcNavItems.classList.remove("inline-block");
+
+                gsAcNavBtnIconUp.classList.add("hidden");
+                gsAcNavBtnIconDown.classList.remove("hidden");
+            } else {
+                gsAcNavItems.classList.remove("hidden");
+                gsAcNavItems.classList.add("inline-block");
+
+                gsAcNavBtnIconDown.classList.add("hidden");
+                gsAcNavBtnIconUp.classList.remove("hidden");
+            }
+
+            gsAcIsNavOpen = !gsAcIsNavOpen;
         }
 
         // Footer

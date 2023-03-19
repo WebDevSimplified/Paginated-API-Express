@@ -53,6 +53,10 @@ body {
     background: var(--tertiary);
 }
 
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
 h1 {
     font-family: 'Oswald-Bold', sans-serif;
 }
@@ -102,7 +106,8 @@ footer {
 }
 
 #getting-started {
-    background: linear-gradient(to bottom, #0C1234, #011627);
+    background: linear-gradient(to bottom, #0C1234, var(--onTertiary) 40%);
+    overflow-x: hidden;
 }
 
 #about {
@@ -147,7 +152,7 @@ details[open] > summary {
     }
 
     .card {
-        @apply max-w-lg shadow-lg border border-[#d5d5d5] px-4 py-6 rounded-lg;
+        @apply max-w-lg shadow-lg px-4 py-6 rounded-lg;
     }
 
     .page-margin {
@@ -155,7 +160,7 @@ details[open] > summary {
     }
 
     .form-input {
-        @apply flex flex-col bg-[#1d2849] rounded-2xl ml-0 m-4 py-2 px-6;
+        @apply flex flex-col bg-[#1d2849] rounded-2xl mx-0 m-4 py-2 px-3 md:px-6;
     }
 
     .form {
