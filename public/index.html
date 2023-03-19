@@ -59,7 +59,7 @@
                     <ul id="gs-nav-items"
                         class="hidden absolute top-12 inset-x-0 frosted-glass rounded-lg py-3 flex-col bg-[#808080] lg:static lg:flex lg:flex-row lg:py-0 lg:bg-transparent lg:rounded-none">
                         <li class="py-2 mx-2.5 lg:mx-5">
-                            <a href="#about" class="flex">
+                            <a href="#" class="flex">
                                 <span class="iconify" data-icon="gridicons:stats-alt" style="font-size: 24px"></span>
                                 &nbsp;&nbsp;Stats</a>
                         </li>
@@ -85,7 +85,7 @@
                         </legend>
                         <div class="flex pb-4">
                             <p>Already a member?&nbsp;</p>
-                            <button>login</button>
+                            <button class="auth-switcher">login</button>
                         </div>
                         <div class="form-input">
                             <label for="si-form-input-email">Email</label>
@@ -105,7 +105,7 @@
                         </legend>
                         <div class="flex pb-4">
                             <p>Don't have an account?&nbsp;&nbsp;</p>
-                            <button>register</button>
+                            <button class="auth-switcher">register</button>
                         </div>
                         <div class="form-input">
                             <label for="su-form-input-email">Email</label>
@@ -290,6 +290,7 @@
             gsIsNavOpen = !gsIsNavOpen;
         }
 
+        // #getting-started account nav-items
         const gsAcToggleNavBtn = document.querySelector("button#gs-ac-toggle-navigation-btn");
         const gsAcNavItems = document.querySelector(".gs-ac-nav-items");
         const gsAcNavIcons = document.querySelectorAll("button#gs-ac-toggle-navigation-btn > .iconify");
@@ -299,7 +300,8 @@
 
         gsAcToggleNavBtn.addEventListener("click", gsAcToggleNav);
 
-        function gsAcToggleNav() {
+        function gsAcToggleNav(e) {
+            e.preventDefault();
             if (gsAcIsNavOpen) {
                 gsAcNavItems.classList.add("hidden");
                 gsAcNavItems.classList.remove("inline-block");
@@ -316,6 +318,30 @@
 
             gsAcIsNavOpen = !gsAcIsNavOpen;
         }
+
+        // auth switcher
+        const loginForm = document.querySelector('form[name="login"]');
+        const registrationForm = document.querySelector('form[name="registration"]');
+        const authSwitcher = document.querySelectorAll("button.auth-switcher");
+        let authSwitcherIsRegistrationOpen = false;
+
+        authSwitcher.forEach(function(btn){
+            btn.addEventListener("click", toggleAuth);
+        });
+
+        function toggleAuth(e) {
+            e.preventDefault();
+            if (!authSwitcherIsRegistrationOpen) {
+                registrationForm.classList.add("hidden");
+                loginForm.classList.remove("hidden");
+            } else {
+                registrationForm.classList.remove("hidden");
+                loginForm.classList.add("hidden");
+            }
+
+            authSwitcherIsRegistrationOpen = !authSwitcherIsRegistrationOpen;
+        }
+        
 
         // Footer
         const copyrightYear = document.querySelector("#copyright-year");
