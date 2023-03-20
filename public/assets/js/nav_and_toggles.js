@@ -85,14 +85,16 @@ window.addEventListener("load", function() {
 
     // auth switcher
     const loginForm = document.querySelector('form[name="login"]');
+    const accountLoginBtn = document.querySelector('.login');
     const registrationForm = document.querySelector('form[name="registration"]');
     const authSwitcher = document.querySelectorAll("button.auth-switcher");
     let authSwitcherIsRegistrationOpen = !registrationForm.classList.contains("hidden");
 
+
     authSwitcher.forEach(function(btn){
         btn.addEventListener("click", toggleAuth);
     });
-
+    
     function toggleAuth(e) {
         e.preventDefault();
         if (authSwitcherIsRegistrationOpen) {
@@ -102,8 +104,17 @@ window.addEventListener("load", function() {
             registrationForm.classList.remove("hidden");
             loginForm.classList.add("hidden");
         }
-
+        
         authSwitcherIsRegistrationOpen = !authSwitcherIsRegistrationOpen;
+    }
+    
+    accountLoginBtn.addEventListener("click", goToLogin);
+
+    function goToLogin() {
+        if (authSwitcherIsRegistrationOpen) {
+            registrationForm.classList.add("hidden");
+            loginForm.classList.remove("hidden");
+        }
     }
     
 

@@ -58,11 +58,11 @@
                     </button>
                     <ul id="gs-nav-items"
                         class="hidden absolute top-12 inset-x-0 frosted-glass rounded-lg py-3 flex-col bg-[#808080] lg:static lg:flex lg:flex-row lg:py-0 lg:bg-transparent lg:rounded-none">
-                        <li class="py-2 mx-2.5 lg:mx-5">
+                        <!-- <li class="py-2 mx-2.5 lg:mx-5">
                             <a href="#" class="flex">
                                 <span class="iconify" data-icon="gridicons:stats-alt" style="font-size: 24px"></span>
                                 &nbsp;&nbsp;Stats</a>
-                        </li>
+                        </li> -->
                         <li class="py-2 ml-2.5 lg:ml-5">
                             <button class="flex" id="gs-ac-toggle-navigation-btn">
                                 <span class="iconify" data-icon="ic:outline-account-circle" style="font-size: 24px"></span>
@@ -72,7 +72,8 @@
                             </button>
                         </li>
                         <li class="gs-ac-nav-items hidden py-2 mx-2.5 lg:mx-5 lg:absolute lg:top-10 lg:right-0 lg:bg-[#808080] lg:px-6 lg:rounded">
-                            <a href="#about" class="pl-8 lg:pl-0">Logout</a>
+                            <button class="login pl-8 lg:pl-0">Login</button>
+                            <button class="logout hidden pl-8 lg:pl-0">Logout</button>
                         </li>
                     </ul>
                 </nav>
@@ -125,15 +126,15 @@
                     <button class="my-10 btn btn-transparent flex md:my-20" id="generate-secret-btn">
                         Regenerate key&nbsp;<span class="iconify" data-icon="ic:round-refresh" style="font-size: 24px"></span>
                     </button>
-                    <p class="flex" id="copy-secret">
-                        <span id="api-secret-text">Dfn.__________________</span>&nbsp;&nbsp;
+                    <p class="flex shadow-md cursor-pointer" id="copy-secret">
+                        <span class="api-secret-text">Dfn.__________________</span>&nbsp;&nbsp;
                         <span class="iconify" data-icon="material-symbols:content-copy-rounded" style="font-size: 24px"></span>
                     </p>
                     <p class="py-8">
                         This key will only be shown once. Therefore, ensure you capture and store it securely. You can regenerate the key incase you forget or if your current key is compromised. The generated key is to be used as follows in your header request (example for demonstration purposes only):
                     </p>
                     <code>
-                        Authorization: Bearer Dfn.5rtsi98bfq65
+                        Authorization: Bearer <span class="api-secret-text">Dfn.__________________</span>
                     </code>
                 </div>
             </section>

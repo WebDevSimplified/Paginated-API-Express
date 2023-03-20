@@ -14,7 +14,6 @@ router
      */
     .post(async (req, res, _) => {
         const { email, password } = req.body
-
         try {
             const existingUser = await User.findOne({ email })
             if (existingUser != null) return res.status(409).json({ message: "User with that email already exits", status: 409 });
@@ -23,7 +22,7 @@ router
             const user = await User.create({
                 email: email.toLowerCase(), // sanitize: convert email to lowercase
                 password: encryptedPassword,
-                role: role
+                role: "client"
             });
     
             const token = jwt.sign(
@@ -32,7 +31,6 @@ router
                 { expiresIn: helpers.generateTokenExpiration() }
             );
             user.token = token;
-                
             return res.status(201).json(user)
         } catch(err) {
             console.log(err)
@@ -80,7 +78,9 @@ router
             return res.status(200).json({
                 email: user.email,
                 role: user.role,
-                token: token
+                token: token,
+                status: 200,
+                message: "Logged in successfully."
             });
     
         } catch(err) {
@@ -99,12 +99,48 @@ router
      * Extend the duration of the token
      */
     .post(async (req, res, _) => {
-        const { id, extend } = req.body;
-        const token = typeof id == 'Number' ? id : false;
-        if (!(token && extend)) res.status(400).json({ message: "Invalid input", status: 400 });
+        try {
+            const { id, extend } = req.body;
+            const token = typeof id == 'Number' ? id : false;
+            if (!(token && extend)) res.status(400).json({ message: "Invalid input", status: 400 });
+    
+            await Token.findOneAndUpdate();
+            res.status(200).json({
+                message: "Session extended successfully.",
+                status: 200
+            });
 
-        await Token.findOneAndUpdate()
+        } catch(err) {
+            return res.status(500).json({
+                message: "Something went wrong.",
+                status: 500
+            });
+        }
     });
+
+router
+.route('/token')
+/**
+ * Delete the token
+ */
+.delete(async (req, res, _) => {
+    try {
+        const { id } = req.body;
+        const tokenId= typeof id == 'string' ? id : false;
+        if (!tokenId) res.status(400).json({ message: "Invalid input", status: 400 });
+    
+        await Token.deleteOne({ id: tokenId });
+        res.status(200).json({
+            message: "Session stopped successfully.",
+            status: 200
+        });
+    } catch(err) {
+        return res.status(500).json({
+            message: "Something went wrong.",
+            status: 500
+        }); 
+    }
+});
 
    
 
