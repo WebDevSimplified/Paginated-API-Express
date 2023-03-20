@@ -665,10 +665,6 @@ video {
   position: relative;
 }
 
-.sticky {
-  position: sticky;
-}
-
 .inset-x-0 {
   left: 0px;
   right: 0px;
@@ -680,14 +676,6 @@ video {
 
 .top-12 {
   top: 3rem;
-}
-
-.left-4 {
-  left: 1rem;
-}
-
-.top-4 {
-  top: 1rem;
 }
 
 .z-20 {
@@ -721,6 +709,11 @@ video {
 .mx-5 {
   margin-left: 1.25rem;
   margin-right: 1.25rem;
+}
+
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .my-20 {
@@ -781,6 +774,10 @@ video {
   height: 375px;
 }
 
+.min-h-\[600px\] {
+  min-height: 600px;
+}
+
 .w-full {
   width: 100%;
 }
@@ -803,6 +800,10 @@ video {
 
 .items-end {
   align-items: flex-end;
+}
+
+.items-center {
+  align-items: center;
 }
 
 .justify-center {
@@ -831,14 +832,9 @@ video {
   border-bottom-color: rgb(128 128 128 / var(--tw-border-opacity));
 }
 
-.bg-\[\#1d2849\] {
+.bg-\[\#0D1117\] {
   --tw-bg-opacity: 1;
-  background-color: rgb(29 40 73 / var(--tw-bg-opacity));
-}
-
-.bg-\[\#FFFFF0\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 240 / var(--tw-bg-opacity));
+  background-color: rgb(13 17 23 / var(--tw-bg-opacity));
 }
 
 .bg-\[\#808080\] {
@@ -846,9 +842,9 @@ video {
   background-color: rgb(128 128 128 / var(--tw-bg-opacity));
 }
 
-.bg-\[\#0D1117\] {
+.bg-\[\#FFFFF0\] {
   --tw-bg-opacity: 1;
-  background-color: rgb(13 17 23 / var(--tw-bg-opacity));
+  background-color: rgb(255 255 240 / var(--tw-bg-opacity));
 }
 
 .p-4 {
@@ -884,6 +880,11 @@ video {
   padding-bottom: 1.25rem;
 }
 
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 .pb-0 {
   padding-bottom: 0px;
 }
@@ -908,20 +909,20 @@ video {
   padding-bottom: 2rem;
 }
 
-.pt-36 {
-  padding-top: 9rem;
-}
-
-.pl-6 {
-  padding-left: 1.5rem;
-}
-
 .pl-8 {
   padding-left: 2rem;
 }
 
-.pl-7 {
-  padding-left: 1.75rem;
+.pt-10 {
+  padding-top: 2.5rem;
+}
+
+.pt-36 {
+  padding-top: 9rem;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .text-2xl {
@@ -954,14 +955,14 @@ video {
   color: rgb(255 255 240 / var(--tw-text-opacity));
 }
 
-.shadow-md {
-  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+.shadow-lg {
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.shadow-\[\#808080\] {
-  --tw-shadow-color: #808080;
+.shadow-\[\#0C1234\] {
+  --tw-shadow-color: #0C1234;
   --tw-shadow: var(--tw-shadow-colored);
 }
 
@@ -1048,6 +1049,10 @@ input, select {
   outline-style: none;
 }
 
+input:focus{
+  background-color: #1d2849!important;
+}
+
 label {
   color: var(--secondary);
   font-size: .85rem;
@@ -1060,6 +1065,10 @@ label {
 .frosted-glass {
   -webkit-backdrop-filter: blur(15px);
           backdrop-filter: blur(15px);
+}
+
+.hidden-key {
+  filter: blur(15px);
 }
 
 /* colors */
@@ -1155,8 +1164,17 @@ details[open] > summary {
     margin-right: 0px;
   }
 
+  .md\:my-20 {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+
   .md\:ml-3 {
     margin-left: 0.75rem;
+  }
+
+  .md\:w-1\/2 {
+    width: 50%;
   }
 
   .md\:max-w-full {
@@ -1200,18 +1218,6 @@ details[open] > summary {
 
   .lg\:right-0 {
     right: 0px;
-  }
-
-  .lg\:top-4 {
-    top: 1rem;
-  }
-
-  .lg\:right-4 {
-    right: 1rem;
-  }
-
-  .lg\:top-8 {
-    top: 2rem;
   }
 
   .lg\:top-10 {
@@ -1273,20 +1279,12 @@ details[open] > summary {
     flex-direction: row;
   }
 
-  .lg\:justify-between {
-    justify-content: space-between;
-  }
-
-  .lg\:rounded-none {
-    border-radius: 0px;
-  }
-
   .lg\:rounded {
     border-radius: 0.25rem;
   }
 
-  .lg\:bg-transparent {
-    background-color: transparent;
+  .lg\:rounded-none {
+    border-radius: 0px;
   }
 
   .lg\:bg-\[\#808080\] {
@@ -1294,9 +1292,18 @@ details[open] > summary {
     background-color: rgb(128 128 128 / var(--tw-bg-opacity));
   }
 
+  .lg\:bg-transparent {
+    background-color: transparent;
+  }
+
   .lg\:px-10 {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
+  }
+
+  .lg\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   .lg\:py-0 {
@@ -1309,17 +1316,12 @@ details[open] > summary {
     padding-bottom: 8rem;
   }
 
-  .lg\:px-6 {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+  .lg\:pl-0 {
+    padding-left: 0px;
   }
 
   .lg\:pt-5 {
     padding-top: 1.25rem;
-  }
-
-  .lg\:pl-0 {
-    padding-left: 0px;
   }
 
   .lg\:text-4xl {

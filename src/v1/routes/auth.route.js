@@ -50,14 +50,20 @@ router
      * login with email and password
      */
     .post(async (req, res, _) => {
-        const { email, password } = req.body
-
+        let { email, password } = req.body
         try {
+            email = typeof(email) == "string" && email.trim() != "" ? email : false;
+            password = typeof(password) == "string" && email.trim() != "" ? password : false;
+            if (!(email && password)) return res.status(400).json({
+                message: "Invalid credentials",
+                status: 400
+            });
             let user = await User.findOne({ email });
             const isLoginSuccessful = user && user.password == helpers.hash(password);
 
+
             if (!isLoginSuccessful) {
-                res.statusCode(400).json({
+                return res.status(400).json({
                     message: "Invalid credentials",
                     status: 400
                 });

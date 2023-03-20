@@ -13,7 +13,6 @@ router.
             const prefix = "Dfn.";
             const key = helpers.createRandomString(12);
             const apiKey = prefix.concat(key);
-            console.log("api key: " + key);
             try {
                 const condition = {
                     userId: req.user.id

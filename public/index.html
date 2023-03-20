@@ -77,8 +77,8 @@
                     </ul>
                 </nav>
             </header>
-            <div class="my-20 lg:my-24 lg:flex lg:justify-between">
-                <form name="registration" class="form">
+            <section class="my-20 flex justify-center items-center lg:my-24" id="auth">
+                <form name="registration" class="form hidden">
                     <fieldset>
                         <legend class="text-[#808080] text-5xl pb-8 lg:text-4xl lg:pt-5">
                             Create account for API access.
@@ -88,17 +88,17 @@
                             <button class="auth-switcher">login</button>
                         </div>
                         <div class="form-input">
-                            <label for="si-form-input-email">Email</label>
-                            <input type="email" name="input_email" id="si-form-input-email">
+                            <label for="su-form-input-email">Email</label>
+                            <input type="email" name="input_email" id="su-form-input-email">
                         </div>
                         <div class="form-input">
-                            <label for="si-form-input-password">Password</label>
-                            <input type="password" name="input_password" id="si-form-input-password">
+                            <label for="su-form-input-password">Password</label>
+                            <input type="password" name="input_password" id="su-form-input-password">
                         </div>
                         <button class="btn btn-cta ml-0 m-4 py-2 px-6" type="submit">Create account</button>
                     </fieldset>
                 </form>
-                <form name="login" class="form hidden">
+                <form name="login" class="form">
                     <fieldset>
                         <legend class="text-[#808080] text-5xl pb-8 lg:text-4xl lg:pt-5">
                             Access your account.
@@ -108,54 +108,39 @@
                             <button class="auth-switcher">register</button>
                         </div>
                         <div class="form-input">
-                            <label for="su-form-input-email">Email</label>
-                            <input type="email" name="input_email" id="su-form-input-email">
+                            <label for="si-form-input-email">Email</label>
+                            <input type="email" name="input_email" id="si-form-input-email">
                         </div>
                         <div class="form-input">
-                            <label for="su-form-input-password">Password</label>
-                            <input type="password" name="input_email" id="su-form-input-password">
+                            <label for="si-form-input-password">Password</label>
+                            <input type="password" name="input_email" id="si-form-input-password">
                         </div>
                         <button class="btn btn-cta ml-0 m-4 py-2 px-6" type="submit">Account login</button>
                     </fieldset>
                 </form>
-                <div class="relative card shadow-md shadow-[#808080] mt-28 pb-0 -mx-4 md:mx-0 md:max-w-full lg:max-w-[600px] lg:mt-0">
-                    <form class="form flex flex-wrap justify-between absolute top-0 inset-x-0 frosted-glass max-w-full md:px-4">
-                        <div class="form-input mr-0.5 lg:mr-3">
-                            <label for="comparison-operators">Comparison:</label>
-                            <select id="comparison-operators" name="comparison_operators">
-                                <option value="greater_than_or_equal_to">>=</option>
-                                <option value="greater_than">></option>
-                                <option value="equal_to">==</option>
-                                <option value="less_than_or_equal_to"><=</option>
-                                <option value="less_than"><</option>
-                            </select>
-                        </div>
-                        <div class="form-input mr-0.5 lg:mr-3">
-                            <label for="date">Updated at:</label>
-                            <input type="date" id="date" name="updated_at">
-                        </div>
-                        <div class="form-input mr-0.5 lg:mr-3">
-                            <label for="page">Page:</label>
-                            <select id="page" name="page">
-                                <option value="0">0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
-                        </div>
-                        <input type="submit" class="my-4 btn btn-transparent md:ml-3">    
-                    </form>
-                    <div class="h-[375px] -mx-4 bg-[#1d2849] text-[#FFFFF0] overflow-y-scroll p-4 rounded-b-lg pt-36 md:pt-20 ">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo, quam sit repudiandae ea eos sed aut a qui et impedit eaque esse est molestiae recusandae placeat culpa ex quasi. Corrupti.
-                    </div>
-
+            </section>
+            <section class="min-h-[600px] hidden justify-center items-center" id="api-secret">
+                <div class="text-center flex flex-col items-center md:w-1/2">
+                    <h2 class="text-[#808080] text-5xl pt-10 pb-16 lg:text-6xl">#&nbsp;&nbsp;Api secret</h2>
+                    <button class="my-10 btn btn-transparent flex md:my-20" id="generate-secret-btn">
+                        Regenerate key&nbsp;<span class="iconify" data-icon="ic:round-refresh" style="font-size: 24px"></span>
+                    </button>
+                    <p class="flex" id="copy-secret">
+                        <span id="api-secret-text">Dfn.__________________</span>&nbsp;&nbsp;
+                        <span class="iconify" data-icon="material-symbols:content-copy-rounded" style="font-size: 24px"></span>
+                    </p>
+                    <p class="py-8">
+                        This key will only be shown once. Therefore, ensure you capture and store it securely. You can regenerate the key incase you forget or if your current key is compromised. The generated key is to be used as follows in your header request (example for demonstration purposes only):
+                    </p>
+                    <code>
+                        Authorization: Bearer Dfn.5rtsi98bfq65
+                    </code>
                 </div>
-            </div>
+            </section>
         </section>
         <section id="about"
             class="bg-[#FFFFF0] text-[#313131] flex justify-between flex-col pb-24 lg:flex-row page-margin lg:py-32">
-            <h2 class="color-on-tertiary text-5xl pb-16 lg:text-6xl lg:text-[#808080] lg:pt-5">About</h2>
+            <h2 class="color-on-tertiary text-5xl pb-16 lg:text-6xl lg:text-[#808080] lg:pt-5">#&nbsp;&nbsp;About</h2>
             <div class="w-full lg:max-w-xl lg:mx-auto">
                 <details class="border-b-1 border-b-[#808080]" open>
                     <summary class="text-2xl">What is this?</summary>
@@ -233,122 +218,7 @@
     </footer>
 </body>
 <script src="assets/js/iconify.min.js"></script>
-<script>
-    window.addEventListener("load", function() {
-        // Primary Nav
-        const toggleNavBtn = document.querySelector("nav#main #toggle-navigation-btn");
-        const navItems = document.querySelector("#nav-items");
-        const navBtnIconDown = toggleNavBtn.children[0];
-        const navBtnIconUp = toggleNavBtn.children[1];
-        let isNavOpen = false;
-
-        toggleNavBtn.addEventListener("click", toggleNav);
-
-        function toggleNav() {
-            if (isNavOpen) {
-                navItems.classList.add("hidden");
-                navItems.classList.remove("flex");
-
-                navBtnIconUp.classList.add("hidden");
-                navBtnIconDown.classList.remove("hidden");
-            } else {
-                navItems.classList.remove("hidden");
-                navItems.classList.add("flex");
-
-                navBtnIconDown.classList.add("hidden");
-                navBtnIconUp.classList.remove("hidden");
-            }
-
-            isNavOpen = !isNavOpen;
-            
-        }
-
-        // #getting-started Nav
-        const gsToggleNavBtn = document.querySelector("#gs-toggle-navigation-btn");
-        const gsNavItems = document.querySelector("#gs-nav-items");
-        const gsNavBtnIconDown = gsToggleNavBtn.children[0];
-        const gsNavBtnIconUp = gsToggleNavBtn.children[1];
-        let gsIsNavOpen = false;
-
-        gsToggleNavBtn.addEventListener("click", gsToggleNav);
-
-        function gsToggleNav() {
-            if (gsIsNavOpen) {
-                gsNavItems.classList.add("hidden");
-                gsNavItems.classList.remove("flex");
-
-                gsNavBtnIconUp.classList.add("hidden");
-                gsNavBtnIconDown.classList.remove("hidden");
-            } else {
-                gsNavItems.classList.remove("hidden");
-                gsNavItems.classList.add("flex");
-
-                gsNavBtnIconDown.classList.add("hidden");
-                gsNavBtnIconUp.classList.remove("hidden");
-            }
-
-            gsIsNavOpen = !gsIsNavOpen;
-        }
-
-        // #getting-started account nav-items
-        const gsAcToggleNavBtn = document.querySelector("button#gs-ac-toggle-navigation-btn");
-        const gsAcNavItems = document.querySelector(".gs-ac-nav-items");
-        const gsAcNavIcons = document.querySelectorAll("button#gs-ac-toggle-navigation-btn > .iconify");
-        const gsAcNavBtnIconDown = gsAcNavIcons[1];
-        const gsAcNavBtnIconUp = gsAcNavIcons[2];
-        let gsAcIsNavOpen = false;
-
-        gsAcToggleNavBtn.addEventListener("click", gsAcToggleNav);
-
-        function gsAcToggleNav(e) {
-            e.preventDefault();
-            if (gsAcIsNavOpen) {
-                gsAcNavItems.classList.add("hidden");
-                gsAcNavItems.classList.remove("inline-block");
-
-                gsAcNavBtnIconUp.classList.add("hidden");
-                gsAcNavBtnIconDown.classList.remove("hidden");
-            } else {
-                gsAcNavItems.classList.remove("hidden");
-                gsAcNavItems.classList.add("inline-block");
-
-                gsAcNavBtnIconDown.classList.add("hidden");
-                gsAcNavBtnIconUp.classList.remove("hidden");
-            }
-
-            gsAcIsNavOpen = !gsAcIsNavOpen;
-        }
-
-        // auth switcher
-        const loginForm = document.querySelector('form[name="login"]');
-        const registrationForm = document.querySelector('form[name="registration"]');
-        const authSwitcher = document.querySelectorAll("button.auth-switcher");
-        let authSwitcherIsRegistrationOpen = false;
-
-        authSwitcher.forEach(function(btn){
-            btn.addEventListener("click", toggleAuth);
-        });
-
-        function toggleAuth(e) {
-            e.preventDefault();
-            if (!authSwitcherIsRegistrationOpen) {
-                registrationForm.classList.add("hidden");
-                loginForm.classList.remove("hidden");
-            } else {
-                registrationForm.classList.remove("hidden");
-                loginForm.classList.add("hidden");
-            }
-
-            authSwitcherIsRegistrationOpen = !authSwitcherIsRegistrationOpen;
-        }
-        
-
-        // Footer
-        const copyrightYear = document.querySelector("#copyright-year");
-        copyrightYear.textContent =  new Date().getFullYear();      
-
-
-    });
-
-</script>
+<script defer src="assets/js/nav_and_toggles.js"></script>   
+<script defer src="assets/js/auth.js"></script>
+<script defer src="assets/js/generate_secret.js"></script>
 </html>

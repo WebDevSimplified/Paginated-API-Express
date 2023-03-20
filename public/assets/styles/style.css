@@ -75,6 +75,10 @@ input, select {
     outline-style: none;
 }
 
+input:focus{
+    background-color: #1d2849!important;
+}
+
 label {
     color: var(--secondary);
     font-size: .85rem;
@@ -86,6 +90,10 @@ label {
 
 .frosted-glass {
     backdrop-filter: blur(15px);
+}
+
+.hidden-key {
+    filter: blur(15px);
 }
 
 /* colors */
