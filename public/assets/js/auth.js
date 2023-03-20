@@ -48,7 +48,7 @@ window.addEventListener("load", function() {
         if (response) {
             localStorage.setItem("accessToken", response.token);
             showAlert(201, "Registered successfully.");
-            history.go(0);
+            location.href = location.href;
         } else {
             showAlert(response.status, response.message);
         }
