@@ -81,13 +81,13 @@ router
   /**
    *
    */
-  .post(authenticateApiKey, (req, res) => {
+  .post(authenticateApiKey, async (req, res) => {
     try {
       if (!validateCreate(req.body)) {
         return res.status(400).json({ message: "Invalid fields", status: 400 });
       }
 
-      const newDefinition = Definition.create(req.body);
+      const newDefinition = await Definition.create(req.body);
       return res.status(201).json(newDefinition);
     } catch (err) {
       console.err(err);
@@ -96,5 +96,7 @@ router
         .json({ message: "Something went wrong", status: 500 });
     }
   });
+
+router.route("/").get();
 
 module.exports = router;

@@ -1,13 +1,13 @@
 # 1. Generate Api key for authenticated user
-GET http://localhost:3005/api/v1/key
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiam9obmRvZUBleGFtcGxlLmNvbSIsImlkIjoiNjNlYTM4N2IyN2NhMDU0ZjhjMmViNmI2Iiwicm9sZSI6ImNsaWVudCIsImlhdCI6MTY3OTMyMTYzM30.O-hYhq3tCXNUP79bJ43uHqXhozCtlsePu55zkfb1SUs
+# GET http://localhost:3005/api/v1/key
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiam9obmRvZUBleGFtcGxlLmNvbSIsImlkIjoiNjNlYTM4N2IyN2NhMDU0ZjhjMmViNmI2Iiwicm9sZSI6ImNsaWVudCIsImlhdCI6MTY3OTMyMTYzM30.O-hYhq3tCXNUP79bJ43uHqXhozCtlsePu55zkfb1SUs
 
 # 2. Register with email and password
-# POST http://localhost:3000/api/v1/auth/register
+# POST http://localhost:3005/api/v1/auth/register
 # content-type: application/json
 
 # {
-#     "email": "johndoe@example.com",
+#     "email": "admin@example.com",
 #     "password": "12345678"
 # }
 
@@ -16,7 +16,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiam9obmRvZ
 # content-type: application/json
 
 # {
-#     "email": "johndoe@example.com",
+#     "email": "admin@example.com",
 #     "password": "12345678"
 # }
 
@@ -56,14 +56,36 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiam9obmRvZ
 # &password=12345678
 
 # 4.1 Get definitions (paginated)
-# GET https://dull-gold-cape-buffalo-hem.cyclic.app/api/v1/definitions?page=2&limit=2&comparator=gt&createdAt=2023-02-17T14:53:31.750Z
+GET https://dull-gold-cape-buffalo-hem.cyclic.app/api/v1/definitions
+Authorization: Bearer Dfn.n8siqyqxwek5
 # Authorization: Bearer Dfn.5rtsi98bfq65
-# Content-Type: application/json
+Content-Type: application/json
 
 # # 4.2. Get definitions (paginated)
 # GET https://dull-gold-cape-buffalo-hem.cyclic.app/api/v1/definitions
 # Authorization: Bearer Dfn.5rtsi98bfq65
 # Content-Type: application/json
+
+# End production------------------------------------------
+
+# 4.3 Post definintion 
+# POST http://localhost:3005/api/v1/definitions
+# Authorization: Bearer Dfn.n8siqyqxwek5
+# Content-Type: application/json
+
+# {
+#     "title": "Kapa",
+#     "definition": "A thousand shillings (KES 1000)",
+#     "exampleUsage": "Nilishika hiyo tenje na kapa moja huko moshatha - I bought that phone for one thousand only in my up-country.",
+#     "category": "word",
+#     "partOfSpeech": "noun",
+#     "rarity": "common",
+#     "spellingVariations": null
+# }
+
+# 4.4 Generate Api key for authenticated user
+# GET http://localhost:3005/api/v1/key
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJpZCI6IjY0OGVlZGQ4ODJlMzAwMzM3Y2JjNDNjMSIsInJvbGUiOiJjbGllbnQiLCJpYXQiOjE2ODcwODg2NjJ9.yg9wuronOaDxMaYhWvkD6tfo_INbm3dOOgZ0B-p45NI
 
 
 
