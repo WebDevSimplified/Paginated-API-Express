@@ -45,11 +45,12 @@ const authenticateApiKey = async (req, res, next) => {
   const hashedKey = helpers.hash(key);
 
   try {
-    // const apiKey = await Api.findOne({ hashedKey });
-    // if (!apiKey) return res.status(401).json({
-    //     message: "Invalid api key",
-    //     status: 401
-    // });
+    const apiKey = await Api.findOne({ hashedKey });
+    if (!apiKey)
+      return res.status(401).json({
+        message: "Invalid api key",
+        status: 401,
+      });
 
     next();
   } catch (e) {

@@ -53,4 +53,18 @@ validate.validateCreate = (doc) => {
   return true;
 };
 
+validate.validateGetByTitle = (params) => {
+  let { title } = params;
+  title = typeof title == "string" && title.trim() != "" ? title.trim() : false;
+  if (!title) return false;
+  return true;
+};
+
+validate.validateGetById = (params) => {
+  let { id } = params;
+  id = typeof id == "string" && id.trim() != "" ? id.trim() : false;
+  if (!id) return false;
+  return true;
+};
+
 module.exports = validate;

@@ -2,19 +2,27 @@ const express = require("express");
 const router = express.Router();
 
 const { paginatedResults } = require("../middleware/pagination.middleware");
-const { authenticateApiKey } = require("../middleware/auth.middleware");
+// const { authenticateApiKey } = require("../middleware/auth.middleware");
+
 const Definition = require("./../../../mongo/models/definitions");
-const { validateCreate } = require("./../../v1/validate/definition");
+
+const {
+  createDefinition,
+  getDefinitionById,
+  getDefinitionByTitle,
+  updateDefinition,
+  deleteDefinition,
+} = require("./../../v1/controllers/definition.controller");
 
 router
   .route("/")
   /**
-   * @api {get} /definitions/ Request All Definitions
+   * @api {get} /definitions/ Get all definitions
    * @apiName GetDefinitions
    * @apiGroup Definitions
-   * @apiPermission customer
+   * @apiPermission user
    *
-   * @apiHeader {String} authorization Developer's access token
+   * @apiHeader {String} Authorization Developer's access token
    * @apiHeaderExample {json} Header-Example:
    * {
    *      "Authorization": Bearer Dfn.12345
@@ -56,15 +64,15 @@ router
    *      "results": [
    *           {
    *                "_id": "63ee2b80f2c91c3089905cfb",
-   *                 "title": "M-Chwa / M-Sape",
-   *                 "definition": "M-pesa - A mobile money solution available in Kenya",
+   *                "title": "M-Chwa / M-Sape",
+   *                "definition": "M-pesa - A mobile money solution available in Kenya",
    *                "category": "word",
    *                "exampleUsage": "Nitumie ile doh kwa Msape - Send me the money you owe through Mpesa",
    *                "partOfSpeech": "noun",
    *                "rarity": "common",
-   *                 "spellingVariations": null,
-   *                 "createdAt": "2023-02-16T13:11:28.568Z",
-   *                 "updatedAt": "2023-02-16T13:11:28.568Z",
+   *                "spellingVariations": null,
+   *                "createdAt": "2023-02-16T13:11:28.568Z",
+   *                "updatedAt": "2023-02-16T13:11:28.568Z",
    *                "__v": 0     *
    *           }
    *      ]
@@ -72,31 +80,135 @@ router
    *
    * @apiError Unauthorized-401 Invalid api key
    */
-  .get(authenticateApiKey, paginatedResults(Definition), (_, res, __) => {
+  .get(/*authenticateApiKey,*/ paginatedResults(Definition), (_, res, __) => {
     return res.json(res.paginatedResults);
   });
 
 router
   .route("/")
   /**
+   * @api {post} /definitions/ Create Definition
+   * @apiName CreateDefinitions
+   * @apiGroup Definitions
+   * @apiPermission admin
+   *
+   * @apiHeader {String} Authorization Admin's access token
+   * @apiHeaderExample {json} Header-Example:
+   * {
+   *      "Authorization": Bearer Adm.12345
+   * }
+   *
+   * @apiBody {String} title Mandatory title
+   * @apiBody {String} definition Mandatory definition
+   * @apiBody {String} category Mandatory category (word or idiom),
+   * @apiBody {String} partOfSpeech Mandatory part of speech (noun, verb etc),
+   * @apiBody {String} exampleUsage Mandatory example usage,
+   * @apiBody {String} rarity Mandatory rarity (common or rare),
+   * @apiBody {String} [spellingVariations] Optional spelling variations
+   *
+   * @apiSuccess {String} title Mandatory title
+   * @apiSuccess {String} definition Mandatory definition
+   * @apiSuccess {String} category Mandatory category (word or idiom),
+   * @apiSuccess {String} partOfSpeech Mandatory part of speech (noun, verb etc),
+   * @apiSuccess {String} exampleUsage Mandatory example usage,
+   * @apiSuccess {String} rarity Mandatory rarity (common or rare),
+   * @apiSuccess {String} [spellingVariations] Optional spelling variations
+   */
+  .post(/*authenticateApiKey,*/ createDefinition);
+
+router
+  .route("/:title")
+  /**
+   * @api {get} /definitions/:title Get definition by title
+   * @apiName GetDefinitionByTitle
+   * @apiGroup Definitions
+   * @apiPermission admin
+   *
+   * @apiHeader {String} Authorization Admin's access token
+   * @apiHeaderExample {json} Header-Example:
+   * {
+   *      "Authorization": Bearer Adm.12345
+   * }
+   *
+   * @apiParam {String} title Mandatory title
+   *
+   * @apiSuccess {String} title Mandatory title
+   * @apiSuccess {String} definition Mandatory definition
+   * @apiSuccess {String} category Mandatory category (word or idiom),
+   * @apiSuccess {String} partOfSpeech Mandatory part of speech (noun, verb etc),
+   * @apiSuccess {String} exampleUsage Mandatory example usage,
+   * @apiSuccess {String} rarity Mandatory rarity (common or rare),
+   * @apiSuccess {String} [spellingVariations] Optional spelling variations
+   */
+  .get(/*authenticateApiKey,*/ getDefinitionByTitle);
+
+router
+  .route("/:id")
+  /**
+   * @api {get} /definitions/:id Get definition by id
+   * @apiName GetDefinitionById
+   * @apiGroup Definitions
+   * @apiPermission admin
+   *
+   * @apiHeader {String} Authorization Admin's access token
+   * @apiHeaderExample {json} Header-Example:
+   * {
+   *      "Authorization": Bearer Adm.12345
+   * }
+   *
+   * @apiParam {String} id Mandatory id
+   *
+   * @apiSuccess {String} title Mandatory title
+   * @apiSuccess {String} definition Mandatory definition
+   * @apiSuccess {String} category Mandatory category (word or idiom),
+   * @apiSuccess {String} partOfSpeech Mandatory part of speech (noun, verb etc),
+   * @apiSuccess {String} exampleUsage Mandatory example usage,
+   * @apiSuccess {String} rarity Mandatory rarity (common or rare),
+   * @apiSuccess {String} [spellingVariations] Optional spelling variations
+   */
+  .get(/*authenticateApiKey,*/ getDefinitionById);
+
+router
+  .route("/")
+  /**
+   * @api {put} /definitions/ Update definition
+   * @apiName UpdateDefinition
+   * @apiGroup Definitions
+   * @apiPermission admin
+   *
+   * @apiHeader {String} Authorization Admin's access token
+   * @apiHeaderExample {json} Header-Example:
+   * {
+   *      "Authorization": Bearer Adm.12345
+   * }
+   *
+   * @apiBody {String} title Mandatory title
+   * @apiBody {String} definition Mandatory definition
+   * @apiBody {String} category Mandatory category (word or idiom),
+   * @apiBody {String} partOfSpeech Mandatory part of speech (noun, verb etc),
+   * @apiBody {String} exampleUsage Mandatory example usage,
+   * @apiBody {String} rarity Mandatory rarity (common or rare),
+   * @apiBody {String} [spellingVariations] Optional spelling variations
    *
    */
-  .post(authenticateApiKey, async (req, res) => {
-    try {
-      if (!validateCreate(req.body)) {
-        return res.status(400).json({ message: "Invalid fields", status: 400 });
-      }
+  .put(/*authenticateApiKey,*/ updateDefinition);
 
-      const newDefinition = await Definition.create(req.body);
-      return res.status(201).json(newDefinition);
-    } catch (err) {
-      console.err(err);
-      return res
-        .status(500)
-        .json({ message: "Something went wrong", status: 500 });
-    }
-  });
-
-router.route("/").get();
+router
+  .route("/:id")
+  /**
+   * @api {delete} /definitions/:id Delete definition
+   * @apiName DeleteDefinition
+   * @apiGroup Definitions
+   * @apiPermission admin
+   *
+   * @apiHeader {String} Authorization Admin's access token
+   * @apiHeaderExample {json} Header-Example:
+   * {
+   *      "Authorization": Bearer Adm.12345
+   * }
+   *
+   * @apiParam {String} id Mandatory definition id
+   */
+  .delete(/*authenticateApiKey,*/ deleteDefinition);
 
 module.exports = router;
